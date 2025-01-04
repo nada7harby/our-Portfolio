@@ -5,6 +5,7 @@ import useUserData from './useUserData';
 import "../assets/Css/Nav.css"
 function Navbarr() {
   var user=useUserData();
+console.log(user);
   return (
     <Navbar expand="lg" className="ALLNav">
       <Container>
