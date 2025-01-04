@@ -7,7 +7,7 @@ function App() {
     <Router>
       <Routes>
         {/* تمرير nickname كـ param */}
-        <Route path="/:nickname" element={<Navbarr />} />
+        <Route path="/user/:nickname" element={<Navbarr />} />
       </Routes>
     </Router>
   );
