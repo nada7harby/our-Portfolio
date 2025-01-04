@@ -10,7 +10,7 @@ function App() {
 
   <>
   <Navbarr></Navbarr>
-  <HeroSection ></HeroSection>
+  {/* <HeroSection ></HeroSection> */}
   </>)
 }
 
