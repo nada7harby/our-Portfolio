@@ -1,26 +1,21 @@
-// import React, { useEffect, useState } from 'react';
-// import useUserData from './useUserData';
+import React from 'react';
+import useUserData from './useUserData';
 
-// const HeroSection = () => {
-//   const user = useUserData();
-//   const [userData, setUserData] = useState({});
+const HeroSection = () => {
+  const user = useUserData();
 
+  if (!user) {
+    return <div>Loading...</div>;
+  }
 
-//  return(
-//   <>
-//   <div className='container'>
-//   <div className="row">
-//       <div className='col-lg-5'>
-        
-//       </div>
-//       <div className='col-lg-5'></div>
-//     </div>
+  return (
+    <div>
+      <h1>{user.name}</h1>
+      <p>{user.jobTitle}</p>
+      <img src={user.image} alt="User" />
+      <p>{user.objective}</p>
+    </div>
+  );
+};
 
-//   </div>
-  
-  
-//   </>
-//  )
-// };
-
-// export default HeroSection;
+export default HeroSection;

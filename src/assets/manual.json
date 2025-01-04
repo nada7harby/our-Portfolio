@@ -2,6 +2,7 @@
     {
         "id":1,
         "name": "ahmed Mohamed Abubakr",
+        "nickname":"ahmed",
         "jobTitle": "Full-stack web developer",
         "age": 24,
         "image": "images/personal/profile-img.jpg",
@@ -173,6 +174,7 @@
         "id":2,
         "name": "Nada Harby Motawea",
         "jobTitle": "Front-End Developer",
+        "nickname":"nada",
         "contacts": {
             "phone": "+201155226576",
             "email": "nada123harby@gmail.com",
