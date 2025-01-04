@@ -1,7 +1,7 @@
 // import React from 'react';
 // import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 // // import HeroSection from './component/HeroSection';
-import Navbarr from './component/Navbar';
+import  Navbarr from "../src/Component/Navbar"
 
 function App() {
   return (

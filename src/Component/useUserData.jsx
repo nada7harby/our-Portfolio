@@ -3,33 +3,40 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 
 const useUserData = () => {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState(0);
 
   useEffect(() => {
-    const urlParams = new URLSearchParams(window.location.search);
-    const id = urlParams.get('id'); 
+    const urlParams = new URLSearchParams(window.location.search); // استخراج الـ id من الـ URL
+    const id = urlParams.get('id');
+  
+    
 
     if (id) {
-      axios.get("/src/assets/manual.json") // جلب البيانات من الملف
+      axios
+        .get("/src/assets/manual.json")
         .then((res) => {
           const users = res.data;
 
-          const selectedUser = users.find((user) => user.id === Number(id)); // نبحث عن المستخدم بناءً على الـ id
+          const selectedUser = users.find((user) => user.id === Number(id)); // البحث عن المستخدم بناءً على الـ id
           if (selectedUser) {
-            setUser(selectedUser); // إذا لاقينا المستخدم، نحفظه في الـ state
+            setUser(selectedUser); // حفظ المستخدم إذا وجد
           } else {
-            document.location.href = "404.html"; // لو المستخدم مش موجود، نروح على صفحة 404
+            redirectTo404(); // إعادة التوجيه لصفحة 404
           }
         })
         .catch(() => {
-          document.location.href = "404.html"; // لو في خطأ في تحميل البيانات، نروح على صفحة 404
+          redirectTo404(); // في حالة وجود خطأ أثناء الجلب
         });
     } else {
-      document.location.href = "404.html"; // إذا مفيش id في الـ URL، نروح على صفحة 404
+      redirectTo404(); // إذا لم يتم العثور على الـ id
     }
-  }, []); // الـ useEffect ده هيشتغل لما المكون يتعمله mount لأول مرة
+  }, []); // تشغيل مرة واحدة عند تحميل الكومبوننت
 
-  return user; // نرجع بيانات المستخدم
+  const redirectTo404 = () => {
+    window.location.href = "/404.html"; // إعادة التوجيه إلى صفحة 404
+  };
+
+  return user; // إرجاع بيانات المستخدم
 };
 
 export default useUserData;
